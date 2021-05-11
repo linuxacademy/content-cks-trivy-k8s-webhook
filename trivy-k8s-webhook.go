@@ -72,5 +72,5 @@ func main() {
     http.HandleFunc("/scan", scan)
     http.HandleFunc("/headers", headers)
 
-    http.ListenAndServeTLS(":8090", "trivy-k8s-webhook.crt", "trivy-k8s-webhook.key", nil)
+    http.ListenAndServeTLS(":8090", "certs/trivy-k8s-webhook.crt", "certs/trivy-k8s-webhook.key", nil)
 }
