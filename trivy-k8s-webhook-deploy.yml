@@ -58,5 +58,5 @@ spec:
     app: trivyk8swebhook
   ports:
     - protocol: TCP
-      port: 80
+      port: 8090
       targetPort: 8090
