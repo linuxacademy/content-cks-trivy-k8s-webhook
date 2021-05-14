@@ -37,6 +37,7 @@ spec:
       containers:
       - name: nginx
         image: linuxacademycontent/trivy-k8s-webhook:0.0.1
+        imagePullPolicy: Always
         volumeMounts:
         - name: certs
           mountPath: "/certs"
