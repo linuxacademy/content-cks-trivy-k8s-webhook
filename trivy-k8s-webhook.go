@@ -45,7 +45,10 @@ func scan(w http.ResponseWriter, req *http.Request) {
             log.Printf("Scanning failed for image %v %v", i, image)
         }
     }
-    message := fmt.Sprintf("Image(s) contain serious vulnerabilities: %v", reasons)
+    message := ""
+    if !passed {
+        message = fmt.Sprintf("Image(s) contain serious vulnerabilities: %v", reasons)
+    }
     output := fmt.Sprintf("{\"apiVersion\": \"imagepolicy.k8s.io/v1alpha1\",\"kind\": \"ImageReview\",\"status\": {\"allowed\": %v,\"reason\": \"%v\"}}", passed, message)
     log.Printf("Response %v", output)
     fmt.Fprintf(w, output)
