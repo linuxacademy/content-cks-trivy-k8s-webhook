@@ -42,6 +42,8 @@ spec:
         - name: certs
           mountPath: "/certs"
           readOnly: true
+        ports:
+        - containerPort: 8090
       volumes:
       - name: certs
         secret:
@@ -55,9 +57,11 @@ metadata:
   name: trivyhook
   namespace: trivyk8swebhook
 spec:
+  type: NodePort
   selector:
     app: trivyk8swebhook
   ports:
     - protocol: TCP
       port: 8090
       targetPort: 8090
+      nodePort: 30099
