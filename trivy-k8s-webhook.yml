@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: trivy-k8s-webhook
+  namespace: kube-system
+spec:
+  hostNetwork: true
+  containers:
+  - name: trivy-k8s-webhook
+    image: linuxacademycontent/trivy-k8s-webhook:0.0.1
+    ports:
+    - name: webhook
+      containerPort: 8090
+      protocol: TCP

@@ -56,7 +56,8 @@ func scan(w http.ResponseWriter, req *http.Request) {
 
 func trivyScanImage(image string) bool {
     cmd := exec.Command("trivy", "image", "--severity=HIGH,CRITICAL", "--exit-code=1", image)
-    err := cmd.Run()
+    out, err := cmd.CombinedOutput()
+    log.Printf("Output: %v", string(out))
     log.Printf("Error: %v", err)
     return err == nil
 }
