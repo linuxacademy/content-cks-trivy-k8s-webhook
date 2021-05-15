@@ -1,4 +1,4 @@
 keyUsage = critical, digitalSignature, keyEncipherment
 basicConstraints = critical, CA:FALSE
 extendedKeyUsage = serverAuth, clientAuth
-subjectAltName = DNS:trivyhook.trivyk8swebhook.svc.cluster.local,DNS:localhost,IP:127.0.0.1
+subjectAltName = DNS:acg.trivy.k8s.webhook,DNS:trivyhook.trivyk8swebhook.svc.cluster.local,DNS:localhost,IP:127.0.0.1
